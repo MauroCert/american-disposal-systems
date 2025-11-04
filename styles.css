@@ -70,22 +70,27 @@ img {
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.brand strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  letter-spacing: 0.6px;
+.brand img {
+  height: 54px;
+  width: auto;
+  display: block;
 }
 
-.brand span {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-light);
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .nav-links {
@@ -137,7 +142,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1529429617124-aee7df35e6a9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+  background: url('photo-1449339854873-750e6913301b-1920w.jpg') center/cover no-repeat;
   transform: scale(1.05);
   z-index: 0;
 }
@@ -276,6 +281,11 @@ img {
   color: var(--text-light);
 }
 
+.section-note {
+  margin-top: 12px;
+  color: var(--text-light);
+}
+
 .section.dark .section-intro p {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -285,6 +295,24 @@ img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 48px;
   align-items: center;
+}
+
+.split-grid.reverse > *:first-child {
+  order: 2;
+}
+
+.section-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-media img {
+  width: 100%;
+  max-width: 560px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
 }
 
 .card-grid {
@@ -304,6 +332,43 @@ img {
   gap: 14px;
 }
 
+.feature-list,
+.benefit-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  padding: 0;
+}
+
+.feature-list li,
+.benefit-list li {
+  background: var(--white);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  font-size: 1rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.feature-list li strong,
+.benefit-list li strong {
+  color: var(--primary);
+}
+
+.card-media {
+  margin: -32px -32px 20px;
+  border-radius: calc(var(--radius) - 4px) calc(var(--radius) - 4px) 0 0;
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
 .card h3 {
   font-size: 1.35rem;
 }
@@ -312,30 +377,17 @@ img {
   color: var(--text-light);
 }
 
-.card .meta {
-  color: var(--primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
+.about-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.features-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.feature-item {
-  background: var(--accent-light);
-  border-radius: 12px;
-  padding: 22px;
-  border: 1px solid rgba(31, 78, 121, 0.12);
-}
-
-.feature-item strong {
-  display: block;
-  margin-bottom: 6px;
+.about-photo img {
+  width: 100%;
+  max-width: 540px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .metrics {
@@ -429,7 +481,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1529429617124-aee7df35e6a9?auto=format&fit=crop&w=1600&q=70') center/cover;
+  background: url('65039985587__F558883E-1920w.jpg') center/cover;
   opacity: 0.18;
   mix-blend-mode: screen;
 }
@@ -581,24 +633,6 @@ img {
   font-size: 0.9rem;
 }
 
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 16px;
-}
-
-.hero-stat {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
-  font-weight: 500;
-}
-
 .list-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -620,6 +654,10 @@ img {
 @media (max-width: 980px) {
   .split-grid {
     grid-template-columns: 1fr;
+  }
+
+  .split-grid.reverse > *:first-child {
+    order: initial;
   }
 }
 

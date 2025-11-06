@@ -81,7 +81,7 @@
             <p>Perfect for small cleanouts, roofing debris (up to 35 sq ft), or bathroom remodels.</p>
             <p><strong>Weight limit:</strong> 2 tons — about <strong>3–4 pickup truck loads</strong></p>
             <p><strong>Dimensions:</strong> 3.5' H × 7.25' W × 16' L</p>
-            <a class="btn-secondary" href="15-yard-dumpster-rental.html">View 15 Yard Rental</a>
+            <a class="btn-secondary" href="#cta">Book a 15 Yard Dumpster</a>
           </article>
 
           <article class="card">
@@ -92,7 +92,7 @@
             <p>Ideal for kitchen remodels, furniture removal, or window replacements.</p>
             <p><strong>Weight limit:</strong> 3 tons — about <strong>5–6 pickup truck loads</strong></p>
             <p><strong>Dimensions:</strong> 3.5' H × 7.25' W × 22' L</p>
-            <a class="btn-secondary" href="#cta">Talk About 20 Yard Options</a>
+            <a class="btn-secondary" href="#cta">Book a 20 Yard Dumpster</a>
           </article>
 
           <article class="card">
@@ -135,6 +135,9 @@
     <section id="why-choose" class="section">
       <div class="container">
         <div class="split-grid">
+          <figure class="section-media">
+            <img src="IMG_0924-copy-1920w.jpg" alt="Dispatcher coordinating dumpster deliveries on multiple screens">
+          </figure>
           <div>
             <div class="section-intro">
               <h2>Why Choose American Disposal Systems</h2>
@@ -147,41 +150,51 @@
               <li>✅ <strong>Local Experts</strong> – Proudly serving the Tri-State area since 1998</li>
             </ul>
           </div>
-          <figure class="section-media">
-            <img src="IMG_0924-copy-1920w.jpg" alt="Dispatcher coordinating dumpster deliveries on multiple screens">
-          </figure>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section light">
+    <section id="faq" class="section delivery-section">
       <div class="container">
-        <div class="split-grid reverse">
-          <figure class="section-media">
-            <img src="IMG_1512-1920w.jpg" alt="Homeowner preparing driveway for dumpster placement">
-          </figure>
-          <div>
-            <div class="section-intro">
-              <h2>Preparing for Dumpster Delivery</h2>
-              <p>Follow these quick tips to keep your rental on schedule and compliant with local regulations.</p>
+        <div class="section-intro center">
+          <h2>Preparing for Dumpster Delivery</h2>
+          <p>Follow these quick tips to keep your rental on schedule and compliant with local regulations.</p>
+        </div>
+        <div class="faq accordion" role="tablist">
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>How soon can I get a dumpster?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Usually within 24 hours. Same-day delivery is often available.</p>
             </div>
-            <div class="faq">
-              <div class="faq-item">
-                <h3>How soon can I get a dumpster?</h3>
-                <p>Usually within 24 hours. Same-day delivery is often available.</p>
-              </div>
-              <div class="faq-item">
-                <h3>Do I need a permit?</h3>
-                <p>If your dumpster will sit on a public street, you may need a local permit. We can help you confirm.</p>
-              </div>
-              <div class="faq-item">
-                <h3>What materials are allowed?</h3>
-                <p>Most non-hazardous debris including construction waste, furniture, wood, drywall, and more.</p>
-              </div>
-              <div class="faq-item">
-                <h3>How do I prepare my property?</h3>
-                <p>Ensure a flat, clear space free of overhead wires for safe placement.</p>
-              </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>Do I need a permit?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>If your dumpster will sit on a public street, you may need a local permit. We can help you confirm.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>What materials are allowed?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Most non-hazardous debris including construction waste, furniture, wood, drywall, and more.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>How do I prepare my property?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Ensure a flat, clear space free of overhead wires for safe placement.</p>
             </div>
           </div>
         </div>
@@ -249,10 +262,24 @@
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const accordions = document.querySelectorAll('.accordion-toggle');
 
     menuToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    accordions.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const panel = button.nextElementSibling;
+        if (expanded) {
+          panel.hidden = true;
+        } else {
+          panel.hidden = false;
+        }
+      });
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();

@@ -209,38 +209,56 @@
       </div>
     </section>
 
-    <section id="faq" class="section">
+    <section id="faq" class="section delivery-section">
       <div class="container">
-        <div class="split-grid">
-          <figure class="section-media">
-            <img src="IMG_0054-copy-dd3f116d-1920w.jpg" alt="Project manager reviewing dumpster delivery schedule on site">
-          </figure>
-          <div>
-            <div class="section-intro">
-              <h2>15 Yard Dumpster FAQ</h2>
-              <p>Answers to the most common questions we receive about renting and using a 15-yard dumpster.</p>
+        <div class="section-intro center">
+          <h2>15 Yard Dumpster FAQ</h2>
+          <p>Answers to the most common questions we receive about renting and using a 15-yard dumpster.</p>
+        </div>
+        <div class="faq accordion" role="tablist">
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>How long can I keep the dumpster?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Standard rental is 7–10 days, with flexible extensions available.</p>
             </div>
-            <div class="faq">
-              <div class="faq-item">
-                <h3>How long can I keep the dumpster?</h3>
-                <p>Standard rental is 7–10 days, with flexible extensions available.</p>
-              </div>
-              <div class="faq-item">
-                <h3>How quickly can I get delivery?</h3>
-                <p>Most dumpsters are delivered within 24 hours of your request.</p>
-              </div>
-              <div class="faq-item">
-                <h3>Do I need to be home during delivery?</h3>
-                <p>Not necessarily — as long as the drop-off area is clear and accessible.</p>
-              </div>
-              <div class="faq-item">
-                <h3>Can the dumpster go on the street?</h3>
-                <p>Yes, but a permit may be required depending on your municipality.</p>
-              </div>
-              <div class="faq-item">
-                <h3>What if I need more space?</h3>
-                <p>We’ll swap out your dumpster quickly or upgrade you to a larger size.</p>
-              </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>How quickly can I get delivery?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Most dumpsters are delivered within 24 hours of your request.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>Do I need to be home during delivery?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Not necessarily — as long as the drop-off area is clear and accessible.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>Can the dumpster go on the street?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Yes, but a permit may be required depending on your municipality.</p>
+            </div>
+          </div>
+          <div class="faq-item faq-item-full">
+            <button class="accordion-toggle" aria-expanded="false">
+              <span>What if I need more space?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>We’ll swap out your dumpster quickly or upgrade you to a larger size.</p>
             </div>
           </div>
         </div>
@@ -303,10 +321,20 @@
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const accordions = document.querySelectorAll('.accordion-toggle');
 
     menuToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    accordions.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const panel = button.nextElementSibling;
+        panel.hidden = expanded;
+      });
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();

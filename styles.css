@@ -249,7 +249,7 @@ img {
 }
 
 .section {
-  padding: clamp(72px, 8vw, 120px) 5vw;
+  padding: clamp(56px, 6vw, 96px) 5vw;
 }
 
 .section.light {
@@ -279,6 +279,12 @@ img {
 
 .section-intro p {
   color: var(--text-light);
+}
+
+.section-intro.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .section-note {
@@ -598,21 +604,107 @@ img {
   color: #b91c1c;
 }
 
+
 .faq {
   display: grid;
   gap: 18px;
 }
 
 .faq-item {
-  background: var(--white);
   border-radius: var(--radius);
-  padding: 24px;
+  overflow: hidden;
   box-shadow: var(--shadow);
+  background: var(--white);
 }
 
-.faq-item h3 {
-  font-size: 1.15rem;
-  margin-bottom: 8px;
+.faq-column {
+  display: grid;
+  gap: 18px;
+}
+
+.accordion {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.accordion .faq-item-full {
+  grid-column: 1 / -1;
+}
+
+.accordion .faq-item {
+  height: 100%;
+}
+
+.accordion .accordion-toggle {
+  height: 100%;
+}
+
+.accordion .accordion-panel {
+  height: auto;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.accordion-toggle .icon {
+  font-size: 1.4rem;
+  color: var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.accordion-toggle[aria-expanded="true"] .icon {
+  transform: rotate(45deg);
+}
+
+.accordion-toggle:focus {
+  outline: 2px solid rgba(198, 40, 40, 0.4);
+  outline-offset: 2px;
+}
+
+.accordion-toggle:hover {
+  background: rgba(198, 40, 40, 0.08);
+}
+
+.accordion-panel {
+  padding: 0 24px 24px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.accordion-panel p {
+  margin: 0;
+}
+
+.delivery-section {
+  background: #fce8e7;
+}
+
+.delivery-section .section-intro h2,
+.delivery-section .section-intro p {
+  color: var(--primary);
+}
+
+.delivery-section .accordion-toggle {
+  background: #ffffff;
+}
+
+.delivery-section .accordion-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(198, 40, 40, 0.15);
 }
 
 .breadcrumbs {
@@ -637,6 +729,10 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
+}
+
+.list-columns h3 {
+  margin-bottom: 12px;
 }
 
 .pill {
